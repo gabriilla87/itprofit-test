@@ -55,6 +55,7 @@ export default async function validateForm(form) {
         modalText.textContent = parsedResponse.msg
         modal.classList.remove('hidden')
         console.log(parsedResponse.msg)
+        form.reset()
     } else {
         console.log(parsedResponse.fields)
     }
