@@ -37,5 +37,5 @@ module.exports = {
         open: true, // Автоматически открывать браузер
         hot: true, // Горячая перезагрузка
     },
-    mode: 'development',
+    mode: "production",
 };
