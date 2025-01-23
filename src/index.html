@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@500;700&display=swap" rel="stylesheet"/>
+    <title>Форма обратной связи</title>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <form class="feedback-form" id="feedback-form">
+            <div class="inputs">
+                <div class="input-wrapper">
+                    <input class="input" type="text" aria-label="name-field" id="name">
+                    <span class="input-validation" id="name-error"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input class="input" type="text" aria-label="email-field" id="email"/>
+                    <span class="input-validation" id="email-error"></span>
+                </div>
+                <div class="input-wrapper">
+                    <input class="input" type="text" aria-label="phone-field" id="phone"/>
+                    <span class="input-validation" id="phone-error"></span>
+                </div>
+            </div>
+            <div class="textarea-wrapper">
+                <textarea class="textarea" aria-label="message-field" id="message"></textarea>
+                <span class="input-validation" id="message-error"></span>
+            </div>
+            <div class="buttons">
+                <button class="button submit" id="submit" type="submit">Отправить сообщение</button>
+                <button class="button toggle-modal" id="open-modal" type="button">Открыть модалку</button>
+            </div>
+        </form>
+    </div>
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <p id="modal-text">Это модальное окно</p>
+            <button class="button toggle-modal" id="close-modal">Закрыть</button>
+        </div>
+    </div>
+</div>
+<script src="../dist/main.js"></script>
+</body>
+</html>
