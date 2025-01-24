@@ -179,11 +179,13 @@ $text-color: #000;
   visibility: visible;
   opacity: 1;
   transition: opacity 0.5s ease, visibility 0.5s ease;
+
   &.hidden {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.5s ease, visibility 0.5s ease;
   }
+
   .modal-content {
     display: flex;
     flex-direction: column;
@@ -199,9 +201,69 @@ $text-color: #000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transform: scale(0.8);
     transition: transform 0.3s ease;
+
     & p {
       font-size: 20px;
       text-align: center;
+    }
+  }
+}
+
+#loader-container {
+  @extend #modal;
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+
+  & .loader {
+    width: 50px;
+    height: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #514b82;
+    animation: l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+  }
+
+  @keyframes l20-1 {
+    0% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 50% 0%, 50% 0%, 50% 0%, 50% 0%)
+    }
+    12.5% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 0%, 100% 0%, 100% 0%)
+    }
+    25% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 100% 100%, 100% 100%)
+    }
+    50% {
+      clip-path: polygon(50% 50%, 0 0, 50% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%)
+    }
+    62.5% {
+      clip-path: polygon(50% 50%, 100% 0, 100% 0%, 100% 0%, 100% 100%, 50% 100%, 0% 100%)
+    }
+    75% {
+      clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0% 100%)
+    }
+    100% {
+      clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0% 100%)
+    }
+  }
+
+  @keyframes l20-2 {
+    0% {
+      transform: scaleY(1) rotate(0deg)
+    }
+    49.99% {
+      transform: scaleY(1) rotate(135deg)
+    }
+    50% {
+      transform: scaleY(-1) rotate(0deg)
+    }
+    100% {
+      transform: scaleY(-1) rotate(-135deg)
     }
   }
 }

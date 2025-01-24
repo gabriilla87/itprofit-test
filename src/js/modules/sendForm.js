@@ -1,7 +1,17 @@
 export default async function sendForm(inputsValues, errors) {
     const isErrors = !!Object.keys(errors).length
+    const loader = document.getElementById('loader-container')
+
+    function showLoader(loader) {
+        loader.classList.remove('hidden')
+    }
+
+    function hideLoader(loader) {
+        loader.classList.add('hidden')
+    }
 
     try {
+        showLoader(loader)
         const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
             method: 'POST',
             headers: {
@@ -9,6 +19,7 @@ export default async function sendForm(inputsValues, errors) {
             },
             body: JSON.stringify(inputsValues),
         });
+        hideLoader(loader)
         if (response.ok && !isErrors) {
             return JSON.stringify({
                 status: "success",
@@ -20,6 +31,7 @@ export default async function sendForm(inputsValues, errors) {
             fields: errors
         })
     } catch (error) {
+        hideLoader(loader)
         console.error('Ошибка отправки формы', error)
     }
 }
